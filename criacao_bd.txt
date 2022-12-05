@@ -1,0 +1,26 @@
+create database visitorapi;
+
+use visitorapi;
+
+CREATE TABLE admin (
+id int NOT NULL AUTO_INCREMENT primary key,
+cpf varchar(255),
+senha varchar (255)
+);
+
+CREATE TABLE visitors (
+id int NOT NULL AUTO_INCREMENT primary key,
+cpf varchar(255),
+data_de_cadastro varchar(255),
+idade varchar(255),
+nome varchar (255),
+telefone varchar (255),
+status varchar (20),
+permanente varchar (255)
+);
+
+UPDATE visitors SET status = "ATIVO" WHERE permanente != "false";
+
+ALTER TABLE visitor CHANGE status status varchar(20) default "ATIVO";
+
+ALTER TABLE visitors DROP COLUMN permanente;
